@@ -22,11 +22,8 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     @SneakyThrows
     public User update(User user) {
-        if (users.contains(user)) {
             users.set(user.getId() - 1, user);
             return user;
-        }
-        throw new Exception("No such user");
     }
 
     @Override
@@ -37,33 +34,14 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     @SneakyThrows
     public User getById(Integer id) {
-        if (users.get(id - 1) != null) {
-            return users.get(id - 1);
-        }
-        throw new Exception("No such user");
-    }
-
-    @Override
-    @SneakyThrows
-    public User getByLastName(String lastname) {
-        if (lastname != null) {
-            for (User u : users) {
-                if(u.getLastName().equals(lastname)){
-                    return u;
-                }
-            }
-        }
-        return null;
+        return users.get(id - 1);
     }
 
     @Override
     @SneakyThrows
     public void delete(Integer id) {
-        if (users.get(id) != null) {
-            users.remove(users.get(id));
-        }
-        throw new Exception("No such user");
-
+        int index = id-1;
+        users.remove(index);
     }
 
 

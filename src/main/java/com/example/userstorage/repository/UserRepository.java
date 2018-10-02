@@ -10,7 +10,6 @@ public interface UserRepository {
     User update(User user);
     List<User> getAll();
     User getById(Integer id);
-    User getByLastName(String lastname);
     void delete(Integer id);
 
 }
