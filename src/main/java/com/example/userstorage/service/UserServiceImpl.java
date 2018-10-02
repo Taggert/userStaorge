@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
 
         User user = new User(idUser, userRequest.getFirstName(), userRequest.getLastName(), userRequest.getAge());
         if (getByLastname(userRequest.getLastName()) != null) {
-            throw new Exception("User with such lastname already exists");
+            throw new Exception("User with such lastName already exists");
         }
         return repository.create(user);
     }
